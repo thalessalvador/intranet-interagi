@@ -1,0 +1,19 @@
+{
+  "portal": [
+    {
+      "email": "thaless@gmail.com",
+      "properties": {
+        "fullname": "Intranet Interagi",
+        "location": "World"
+      },
+      "groups": [
+      ],
+      "roles": [
+        "Member"
+      ],
+      "username": "intranet-interagi"
+    }
+  ],
+    "team": [
+  ]
+}
