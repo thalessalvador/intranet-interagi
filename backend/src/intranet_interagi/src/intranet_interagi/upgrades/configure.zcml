@@ -3,18 +3,6 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     >
 
-  <!-- Example upgrade step
-  <genericsetup:upgradeSteps
-      profile="intranet_interagi:default"
-      source="20230512001"
-      destination="20230229001"
-      >
-    <genericsetup:upgradeDepends
-        title="Update registry value"
-        import_steps="plone.app.registry"
-        />
-  </genericsetup:upgradeSteps>
-  -->
 
   <genericsetup:upgradeSteps
       profile="intranet_interagi:default"
@@ -23,6 +11,21 @@
       >
     <genericsetup:upgradeDepends
         title="Instala tipo de conteúdo pessoa"
+        import_steps="typeinfo"
+        />
+    <genericsetup:upgradeDepends
+        title="Aplica permissionamento inicial"
+        import_steps="rolemap"
+        />
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+      profile="intranet_interagi:default"
+      source="20230512002"
+      destination="20230512003"
+      >
+    <genericsetup:upgradeDepends
+        title="Instala tipo de conteúdo área"
         import_steps="typeinfo"
         />
     <genericsetup:upgradeDepends
