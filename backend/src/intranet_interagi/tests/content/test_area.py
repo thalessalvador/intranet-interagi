@@ -2,7 +2,8 @@ from intranet_interagi.content.area import Area
 from plone import api
 from plone.dexterity.fti import DexterityFTI
 from zope.component import createObject
-
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
 import pytest
 
 
@@ -58,4 +59,58 @@ class TestArea:
         with api.env.adopt_roles(["Manager"]):
             content = api.content.create(container=portal, **payload)
         assert api.content.get_state(content) == "internal"
-    
+        
+    def test_subscriber_added_with_predio_value(self, portal):
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(
+                container=portal,
+                type=CONTENT_TYPE,
+                title="Marketing",
+                description="Área de Marketing",
+                email="mktg@plone.org",
+                predio="sede",
+                ramal="2022",
+            )
+        assert area.excluded_from_nav is False
+
+    def test_subscriber_added_without_predio_value(self, portal):
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(
+                container=portal,
+                type=CONTENT_TYPE,
+                title="Marketing",
+                description="Área de Marketing",
+                email="mktg@plone.org",
+                ramal="2022",
+            )
+        assert area.excluded_from_nav is True
+
+
+    def test_subscriber_modified_with_predio_value(self, portal):
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(
+                container=portal,
+                type=CONTENT_TYPE,
+                title="Marketing",
+                description="Área de Marketing",
+                email="mktg@plone.org",
+                predio="sede",
+                ramal="2022",
+            )
+            del area.predio;
+            notify(ObjectModifiedEvent(area))
+        assert area.excluded_from_nav is False
+
+    def test_subscriber_modified_without_predio_value(self, portal):
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(
+                container=portal,
+                type=CONTENT_TYPE,
+                title="Marketing",
+                description="Área de Marketing",
+                email="mktg@plone.org",
+                ramal="2022",
+            )
+            area.predio = 'sede';
+            notify(ObjectModifiedEvent(area))
+        assert area.excluded_from_nav is True
