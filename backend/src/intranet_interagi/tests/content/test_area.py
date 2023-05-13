@@ -71,7 +71,7 @@ class TestArea:
                 predio="sede",
                 ramal="2022",
             )
-        assert area.excluded_from_nav is False
+        assert area.exclude_from_nav is False
 
     def test_subscriber_added_without_predio_value(self, portal):
         with api.env.adopt_roles(["Manager"]):
@@ -83,7 +83,7 @@ class TestArea:
                 email="mktg@plone.org",
                 ramal="2022",
             )
-        assert area.excluded_from_nav is True
+        assert area.exclude_from_nav is True
 
 
     def test_subscriber_modified_with_predio_value(self, portal):
@@ -94,23 +94,23 @@ class TestArea:
                 title="Marketing",
                 description="Área de Marketing",
                 email="mktg@plone.org",
-                predio="sede",
                 ramal="2022",
             )
-            del area.predio;
-            notify(ObjectModifiedEvent(area))
-        assert area.excluded_from_nav is False
+            
+            
+        assert area.exclude_from_nav is True
+        area.predio = "sede"
+        notify(ObjectModifiedEvent(area))
+        assert area.exclude_from_nav is False
+        
+    def test_subscriber_added_creates_group(self, portal, payload):
+        from Products.PlonePAS.tools.groupdata import GroupData
 
-    def test_subscriber_modified_without_predio_value(self, portal):
         with api.env.adopt_roles(["Manager"]):
-            area = api.content.create(
-                container=portal,
-                type=CONTENT_TYPE,
-                title="Marketing",
-                description="Área de Marketing",
-                email="mktg@plone.org",
-                ramal="2022",
-            )
-            area.predio = 'sede';
-            notify(ObjectModifiedEvent(area))
-        assert area.excluded_from_nav is True
+            area = api.content.create(container=portal, ** payload)
+        area_uuid = api.content.get_uuid(area)
+        group_name = f"{area_uuid}_editors"
+        group = api.group.get(groupname=group_name)
+        assert isinstance(group, GroupData)
+        roles = api.group.get_roles(group=group, obj=area)
+        assert "Editor" in roles
