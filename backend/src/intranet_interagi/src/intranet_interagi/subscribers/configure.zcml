@@ -10,5 +10,4 @@
            zope.lifecycleevent.IObjectModifiedEvent"
       handler=".area.modified"
       />
-
 </configure>
