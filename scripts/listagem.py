@@ -12,7 +12,7 @@ logger.setLevel(logging.INFO)
 
 # Constantes utilizadas no script
 PASTA_ATUAL = Path(__file__).parent.resolve()
-PASTA_DADOS = PASTA_ATUAL / "../data"
+PASTA_DADOS = PASTA_ATUAL / "data"
 BASE_URL="http://localhost:8080/Plone/++api++"
 USUARIO="admin"
 SENHA="admin"
@@ -21,7 +21,6 @@ SENHA="admin"
 if not PASTA_DADOS.exists():
     PASTA_DADOS.mkdir(parents=True, exist_ok=True)
     logger.info(f"Criada a pasta {PASTA_DADOS}")
-
 
 # Cabeçalhos HTTP
 headers = {
@@ -52,6 +51,12 @@ data = response.json()
 titulo = data["title"]
 logger.info(f"O título do portal é {titulo}")
 
+# Salvar os dados recebidos do portal em um arquivo json
+arquivo_dados = PASTA_DADOS / "portal.json"
+with open(arquivo_dados, "w") as fh:
+    json.dump(data, fh, indent=2)
+    logger.info(f"Dados da raiz do portal salvos em {arquivo_dados}")
+
 # Listagem de todos os conteúdos no portal, ordenados pelo caminho
 ## Ref: https://6.docs.plone.org/plone.restapi/docs/source/endpoints/searching.html#search
 search_url = f"{BASE_URL}/@search?sort_on=path"
@@ -61,8 +66,7 @@ total_conteudo = data["items_total"]
 logger.info(f"O portal conta com {total_conteudo} itens de conteúdo")
 
 # Salvar os dados recebidos do portal em um arquivo json
-arquivo_dados = PASTA_DADOS / "portal.json"
+arquivo_dados = PASTA_DADOS / "listagem.json"
 with open(arquivo_dados, "w") as fh:
     json.dump(data, fh, indent=2)
     logger.info(f"Dados da listagem salvos em {arquivo_dados}")
-  
