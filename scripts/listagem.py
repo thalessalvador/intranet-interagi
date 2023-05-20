@@ -12,7 +12,7 @@ logger.setLevel(logging.INFO)
 
 # Constantes utilizadas no script
 PASTA_ATUAL = Path(__file__).parent.resolve()
-PASTA_DADOS = PASTA_ATUAL / "data"
+PASTA_DADOS = PASTA_ATUAL / "../data"
 BASE_URL="http://localhost:8080/Plone/++api++"
 USUARIO="admin"
 SENHA="admin"
@@ -61,7 +61,7 @@ total_conteudo = data["items_total"]
 logger.info(f"O portal conta com {total_conteudo} itens de conteúdo")
 
 # Salvar os dados recebidos do portal em um arquivo json
-arquivo_dados = PASTA_DADOS / "listagem.json"
+arquivo_dados = PASTA_DADOS / "portal.json"
 with open(arquivo_dados, "w") as fh:
     json.dump(data, fh, indent=2)
     logger.info(f"Dados da listagem salvos em {arquivo_dados}")
