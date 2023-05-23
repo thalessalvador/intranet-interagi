@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Container from '@kitconcept/volto-light-theme/components/Atoms/Container/Container';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
-
+import { ShowBookmarksContentButton } from '@plone-collective/volto-bookmarks/components';
 import {
   Anontools,
   LanguageSelector,
@@ -33,14 +31,9 @@ const Header = (props) => {
           </div>
           <div className="tools-wrapper">
             <LanguageSelector />
-
             <div className="tools">
               {!token && <Anontools />}
-
-              
-              <Link aria-label="sitemap" to="/sitemap">
-                <FormattedMessage id="Sitemap" defaultMessage="Sitemap" />
-              </Link>
+              {token && <ShowBookmarksContentButton />}
             </div>
           </div>
         </div>

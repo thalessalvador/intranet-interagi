@@ -4,11 +4,11 @@
             "@kitconcept/volto-light-theme": [
                 "addons/volto-light-theme/src"
             ],
-            "intranet_interagi": [
-                "addons/intranet_interagi/src"
-            ],
             "@plone-collective/volto-bookmarks": [
                 "addons/volto-bookmarks/src"
+            ],
+            "intranet_interagi": [
+                "addons/intranet_interagi/src"
             ]
         },
         "baseUrl": "src"

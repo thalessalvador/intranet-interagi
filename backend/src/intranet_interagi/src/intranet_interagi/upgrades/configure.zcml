@@ -89,8 +89,8 @@
         handler=".catalog.reindexa_predio"
         />
   </genericsetup:upgradeSteps>
-  
-    <genericsetup:upgradeSteps
+
+  <genericsetup:upgradeSteps
       profile="intranet_interagi:default"
       source="20230522003"
       destination="20230523001"
