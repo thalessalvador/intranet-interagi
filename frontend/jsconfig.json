@@ -6,6 +6,9 @@
             ],
             "intranet_interagi": [
                 "addons/intranet_interagi/src"
+            ],
+            "@plone-collective/volto-bookmarks": [
+                "addons/volto-bookmarks/src"
             ]
         },
         "baseUrl": "src"

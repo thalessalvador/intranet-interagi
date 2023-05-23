@@ -28,7 +28,8 @@
     "src/addons/intranet_interagi"
   ],
   "addons": [
-    "intranet_interagi"
+    "intranet_interagi",
+    "@plone-collective/volto-bookmarks"
   ],
   "theme": "@kitconcept/volto-light-theme",
   "jest": {
