@@ -1,5 +1,5 @@
 {
-  "inranet_interagi": {
-    "local": "addons/inranet_interagi/src"
+  "intranet_interagi": {
+    "local": "addons/intranet_interagi/src"
   }
 }
