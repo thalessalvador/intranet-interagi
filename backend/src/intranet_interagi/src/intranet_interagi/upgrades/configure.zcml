@@ -70,7 +70,7 @@
         import_steps="plone.app.registry"
         />
   </genericsetup:upgradeSteps>
-  
+
   <genericsetup:upgradeSteps
       profile="intranet_interagi:default"
       source="20230522002"
