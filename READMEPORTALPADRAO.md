@@ -12,12 +12,12 @@
 # Conteúdo
 
 - [Introdução](#introdução)
-- Funcionalidades Especializadas(#funcionalidades-especializadas)
-- Pré-requisitos(#pré-requisitos)
-- Instalação(#instalação)
-- Inicialização(#inicialização)
-- Estrutura(#estrutura)
-- Licença(#licença)
+- [Funcionalidades Especializadas](#funcionalidades-especializadas)
+- [Pré-requisitos](#pré-requisitos)
+- [Instalação](#instalação)
+- [Inicialização](#inicialização)
+- [Estrutura](#estrutura)
+- [Licença](#licença)
 
 ## Introdução
 
