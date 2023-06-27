@@ -8,18 +8,17 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/plonegovbr/plonegovbr.portal?style=social)](https://github.com/plonegovbr/plonegovbr.portal)
 
 </div>
-
+<a name="ancora"></a>
 # Conteúdo
 
-* [Introdução](#introducao)
-* Funcionalidades Especializadas
-* Pré-requisitos
-* Instalação
-* Inicialização
-* Estrutura
-* Licença
+- [Introdução](#introdução)
+- Funcionalidades Especializadas
+- Pré-requisitos
+- Instalação
+- Inicialização
+- Estrutura
+- Licença
 
-<a id=#introducao></a>
 ## Introdução
 
 O [Portal Brasil](https://plone.org.br/projetos/portal-brasil) é a distribuição Plone que contempla casos de uso do sistema de gestão de conteúdo [Plone](https://plone.org) para organizações brasileiras.
@@ -31,6 +30,10 @@ Sucessor tecnológico do [Portal Modelo](https://plone.org.br/projetos/portal-mo
 * Design padronizado, mas com possibilidade de pequenos ajustes
 
 ## Funcionalidades Especializadas
+* Serviços
+* Pessoas
+* Agenda
+* Notícias
 
 
 ## Pré-Requisitos
