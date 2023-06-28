@@ -62,6 +62,56 @@ Os requisitos abaixo são apenas uma estimativa mínima para um servidor Plone. 
 
 ## Instalação
 
+### nvm
+Os comandos a seguir usam o bash como shell. Adapte-os  ao seu shell favorito. Veja também a [documentação da instalação e atualização do nvm](https://github.com/nvm-sh/nvm#install--update-script). Para o fish shell, veja [nvm.fish](https://github.com/jorgebucaran/nvm.fish)
+
+1. Crie seu arquivo  profile shell se ele não existe. Os comandos abaixo levam em conta o arquivo .bash_profile. Atente-se que em algumas distribuições como a Debian/Ubuntu este arquivo é o .bashrc. Adapte os comandos a seguir à sua distribuição.
+```shell
+touch ~/.bash_profile
+```
+2. Faça download e rode script de instalação e atualização do nvm e insira-o no bash.
+```shell
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.3/install.sh | bash
+```
+3. Carregue seu arquivo profile. Alternativamente você pode fechar a seção e abrir uma nova.
+```shell
+source ~/.bash_profile
+```
+4. Veirifique se a versão do nvm é a que você instalou ou atualizou .
+```shell
+nvm --version
+```
+
+### Node.js
+1. Instale ou atualize a versão do Node.js. Este comando também ativa a versão
+```shell
+nvm install 16
+```
+2. Verifique se a versão suportada do Node.js está ativa
+```shell
+node -v
+```
+
+### Yarn 3
+1. Instale o Yarn e atualize para a versão 3
+```shell
+npm install --global yarn
+yarn set version berry
+```
+2. Verifique se a versão 3 foi ativada
+```shell
+yarn -v
+```
+
+### Yeoman
+1. Instale o [Yeoman](https://6.docs.plone.org/glossary.html#term-Yeoman)
+```shell
+npm install -g yo
+```
+
+### Make
+O make vem instalado na maioria das distribuições Linux. No macOS, você precisa primeiro [instalar o Xcode](https://developer.apple.com/xcode/resources/) então instale as ferramentas de linha de comando. No Windows, é recomendado instalar o Linuxcom WSL que inclui o make. Também é recomendado atualizar sua versão do make porque algumas distribuições, especialmente macOS possuem versões desatualizadas. Use seu motor de busca preferido para encontrar como atualizar o make
+
 ```shell
 git clone git@github.com:plonegovbr/plonegovbr.portal.git
 cd portal-brasil
