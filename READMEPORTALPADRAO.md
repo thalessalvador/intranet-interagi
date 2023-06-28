@@ -110,7 +110,10 @@ npm install -g yo
 ```
 
 ### Make
-O make vem instalado na maioria das distribuições Linux. No macOS, você precisa primeiro [instalar o Xcode](https://developer.apple.com/xcode/resources/) então instale as ferramentas de linha de comando. No Windows, é recomendado instalar o Linuxcom WSL que inclui o make. Também é recomendado atualizar sua versão do make porque algumas distribuições, especialmente macOS possuem versões desatualizadas. Use seu motor de busca preferido para encontrar como atualizar o make
+O make vem instalado na maioria das distribuições Linux. No macOS, você precisa primeiro [instalar o Xcode](https://developer.apple.com/xcode/resources/) então instale as ferramentas de linha de comando. No Windows, é recomendado [instalar o Linuxcom WSL](https://learn.microsoft.com/en-us/windows/wsl/install) que inclui o make. Também é recomendado atualizar sua versão do make porque algumas distribuições, especialmente macOS possuem versões desatualizadas. Use seu motor de busca preferido para encontrar como atualizar o make.
+
+
+### Clonando o portal no git
 
 ```shell
 git clone git@github.com:plonegovbr/plonegovbr.portal.git
